@@ -1,1 +1,200 @@
-Hello World
+{% extends "layouts/base.html" %}
+
+{% load staticfiles %}
+{% block content %}
+
+
+    <div id='map'></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="padding">
+                <form>
+                    <div class="form-group" style="padding-right: 10px;">
+                        <input type="text" id="search" name="search" class="form-control input-lg"
+                               placeholder="Search by city" style="text-align: left;">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-1 padding">
+            <button class="defaultButton defaultButtonSearch pull-right"
+                    style="font-size: 20px; font-weight: 300;">Search
+            </button>
+        </div>
+        <div class="col-md-5">
+            <div id="show-test">
+                Hello
+            </div>
+            <div class="padding">
+                <div class="bidCard double-padding">
+
+                    <div class="bidCardTitlePrimary">
+                        <h1>Stellenbosch</h1>
+                        <h4><i>Located inside the student center on campus.</i></h4>
+                    </div>
+
+                    {#                    <div class="row padding">#}
+                    {#                        <div class="col-md-6">#}
+                    {#                            <img class="img-responsive" src="{% static 'vendy/img/vending.jpg' %}"/>#}
+                    {#                        </div>#}
+                    {#                        <div class="col-md-6">#}
+                    {#                            <table class="table table-striped">#}
+                    {#                                <thead>#}
+                    {#                                <tr>#}
+                    {#                                    <th>Shelves</th>#}
+                    {#                                    <th>Weight</th>#}
+                    {#                                    <th>Dimensions</th>#}
+                    {#                                    <th>Items</th>#}
+                    {#                                </tr>#}
+                    {#                                </thead>#}
+                    {#                                <tbody>#}
+                    {#                                <tr>#}
+                    {#                                    <th scope="row">2</th>#}
+                    {#                                    <td>< 12oz</td>#}
+                    {#                                    <td>32"W 26"D 72"H</td>#}
+                    {#                                    <td>50</td>#}
+                    {#                                </tr>#}
+                    {#                                <tr>#}
+                    {#                                    <th scope="row">3</th>#}
+                    {#                                    <td>Jacob</td>#}
+                    {#                                    <td>Thornton</td>#}
+                    {#                                    <td>@fat</td>#}
+                    {#                                </tr>#}
+                    {#                                <tr>#}
+                    {#                                    <th scope="row">3</th>#}
+                    {#                                    <td>Larry</td>#}
+                    {#                                    <td>the Bird</td>#}
+                    {#                                    <td>@twitter</td>#}
+                    {#                                </tr>#}
+                    {#                                </tbody>#}
+                    {#                            </table>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+
+                    <div>
+                        <!-- Nav tabs -->
+                        <div class="padding">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#january" aria-controls="january"
+                                                                          role="tab"
+                                                                          data-toggle="tab">January</a></li>
+                                <li role="presentation"><a href="#february" aria-controls="february" role="tab"
+                                                           data-toggle="tab">February</a></li>
+                                <li role="presentation"><a href="#march" aria-controls="march" role="tab"
+                                                           data-toggle="tab">March</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="january">
+                                <div class="bidCardContent">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" id="amount" name="amount"
+                                                   placeholder="$103,00">
+                                        </div>
+                                        <button class="defaultButton defaultButtonBid pull-right"
+                                                style="font-size: 25px; font-weight: 300;">Bid Now
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="february">
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="march">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
+    <script>
+
+        mapboxgl.accessToken = 'pk.eyJ1Ijoibm9ydG9ucnlhbjEiLCJhIjoiY2lzMWs4eG5iMDd2NDJubXoweXMzdmY0OSJ9.tzK9XEGav_T36H_wYM4isg';
+
+        var geojson = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "message": "Foo",
+                        "iconSize": [60, 60]
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            -66.324462890625,
+                            -16.024695711685304
+                        ]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "message": "Bar",
+                        "iconSize": [50, 50]
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            -61.2158203125,
+                            -15.97189158092897
+                        ]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "message": "Baz",
+                        "iconSize": [40, 40]
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            -63.29223632812499,
+                            -18.28151823530889
+                        ]
+                    }
+                }
+            ]
+        };
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            center: [-65.017, -16.457],
+            zoom: 5
+        });
+
+        // add markers to map
+        geojson.features.forEach(function (marker) {
+            // create a DOM element for the marker
+            var el = document.createElement('div');
+            el.className = 'marker';
+            el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+            el.style.width = marker.properties.iconSize[0] + 'px';
+            el.style.height = marker.properties.iconSize[1] + 'px';
+
+            el.addEventListener('click', function () {
+                $('#show-test').hide(500);
+            });
+
+            // add marker to map
+            new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
+                    .setLngLat(marker.geometry.coordinates)
+                    .addTo(map);
+        });
+
+    </script>
+
+{% endblock %}
