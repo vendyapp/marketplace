@@ -6,3 +6,10 @@ def index(request):
     template = 'index.html'
 
     return render(request, template, context=context_dict)
+
+
+def bids(request):
+    context_dict = {}
+    template = 'bids.html'
+
+    return render(request, template, context=context_dict)

@@ -19,5 +19,6 @@ urlpatterns = patterns('',
 
     # Vendy index
     url(r'^$', include('vendy.urls')),
+    url(r'^vendy/', include('vendy.urls')),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
