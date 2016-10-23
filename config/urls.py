@@ -17,4 +17,7 @@ urlpatterns = patterns('',
     # Auth API
     url(r'^api/1/', include('administration.urls')),
 
+    # Vendy index
+    url(r'^$', include('vendy.urls')),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

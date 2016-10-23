@@ -1,4 +1,3 @@
-from datetime import timedelta
 import os
 
 CELERY_ENABLE_UTC = True

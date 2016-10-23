@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 
-    'administration'
+    'administration',
+    'vendy'
 ]
 
 # Middleware
