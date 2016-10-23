@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import jsonify
 from flask import request, redirect, url_for
 from flask.ext.cors import CORS
 
@@ -7,7 +8,13 @@ from os.path import dirname, realpath, join
 from mastercardp2p import PaymentTransfer, Consumer
 import os 
 
+import random
+import string
+
 app = Flask(__name__)
+
+def id_generator(size=20, chars=string.ascii_letters + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
 
 @app.route("/")
 def connect():
@@ -25,7 +32,7 @@ def makeTransfer():
     Config.setSandbox(True)   # For production: use Config.setSandbox(false)
 
     mapObj = RequestMap()
-    mapObj.set("payment_transfer.transfer_reference", "12346991848254111813006")
+    mapObj.set("payment_transfer.transfer_reference", id_generator())
     mapObj.set("payment_transfer.payment_type", "P2P")
     mapObj.set("payment_transfer.funding_source[0]", "CREDIT")
     mapObj.set("payment_transfer.funding_source[1]", "DEBIT")
@@ -128,6 +135,8 @@ def makeTransfer():
     print("transfer.channel--> %s") % response.get("transfer.channel") #transfer.channel-->KIOSK
     print("transfer.status--> %s") % response.get("transfer.status") #transfer.status-->APPROVED
     print("transfer.status_timestamp--> %s") % response.get("transfer.status_timestamp") #transfer.status_timestamp-->2016-08-29T01:11:02-05:00
+
+    return jsonify({'status': 'success'})
         
 
 if __name__ == "__main__":
