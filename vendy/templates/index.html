@@ -4,6 +4,7 @@
 {% block content %}
 
     {% include "modals/stats.html" %}
+    {% include "modals/dimensions.html" %}
     {% include "modals/confirm_bid.html" %}
 
     {% include "layouts/nav.html" %}
@@ -87,7 +88,9 @@
                                                     data-toggle="modal"
                                                     data-target="#stats">Stats
                                             </button>
-                                            <button class="defaultButton defaultButtonStats pull-right">Specs
+                                            <button class="defaultButton defaultButtonStats pull-right"
+                                                    data-toggle="modal"
+                                                    data-target="#dimensions">Specs
                                             </button>
                                         </div>
                                     </div>
