@@ -4,7 +4,8 @@ from flask.ext.cors import CORS
 
 from mastercardapicore import RequestMap, Config, OAuthAuthentication
 from os.path import dirname, realpath, join
-from mastercardp2p import PaymentTransfer
+from mastercardp2p import PaymentTransfer, Consumer
+import os 
 
 app = Flask(__name__)
 
@@ -14,24 +15,23 @@ def connect():
 
 @app.route("/transfer")
 def makeTransfer():
-
     consumerKey = "4FZDE2qryKsPPqA1NwXbbBku3bNHhHZrpZLowyMP6b729703!f435de5c8fe3425aacf9d3b1912611ca0000000000000000"
     keyStorePath = "hackathonalias_sandbox.p12" # e.g. /Users/yourname/project/sandbox.p12 | C:\Users\yourname\project\sandbox.p12
-    keyAlias = "keyalias"   # For production: change this to the key alias you chose when you created your production key
-    keyPassword = "keystorepassword"   # For production: change this to the key alias you chose when you created your production key
+    keyAlias = "hackathonalias"   # For production: change this to the key alias you chose when you created your production key
+    keyPassword = "hackathon@123"   # For production: change this to the key alias you chose when you created your production key
 
     auth = OAuthAuthentication(consumerKey, keyStorePath, keyAlias, keyPassword)
     Config.setAuthentication(auth)
     Config.setSandbox(True)   # For production: use Config.setSandbox(false)
 
     mapObj = RequestMap()
-    mapObj.set("payment_transfer.transfer_reference", "40023991848254111813006")
+    mapObj.set("payment_transfer.transfer_reference", "12346991848254111813006")
     mapObj.set("payment_transfer.payment_type", "P2P")
     mapObj.set("payment_transfer.funding_source[0]", "CREDIT")
     mapObj.set("payment_transfer.funding_source[1]", "DEBIT")
     mapObj.set("payment_transfer.amount", "1800")
     mapObj.set("payment_transfer.currency", "USD")
-    mapObj.set("payment_transfer.sender_account_uri", "acct-ref:ref_20160407070850915")
+    mapObj.set("payment_transfer.sender_account_uri", "pan:5013040000000018;exp=2017-08;cvc=123")
     mapObj.set("payment_transfer.sender.first_name", "John")
     mapObj.set("payment_transfer.sender.middle_name", "Tyler")
     mapObj.set("payment_transfer.sender.last_name", "Jones")
@@ -61,16 +61,10 @@ def makeTransfer():
     mapObj.set("payment_transfer.recipient.email", "Jane.Smith123@abcmail.com")
     mapObj.set("payment_transfer.payment_origination_country", "USA")
     mapObj.set("payment_transfer.sanction_screening_override", " false ")
-    mapObj.set("payment_transfer.reconciliation_data.custom_field[0].name", "ABC")
-    mapObj.set("payment_transfer.reconciliation_data.custom_field[0].value", "123")
-    mapObj.set("payment_transfer.reconciliation_data.custom_field[1].name", "DEF")
-    mapObj.set("payment_transfer.reconciliation_data.custom_field[1].value", "456")
-    mapObj.set("payment_transfer.reconciliation_data.custom_field[2].name", "GHI")
-    mapObj.set("payment_transfer.reconciliation_data.custom_field[2].value", "789")
-    mapObj.set("payment_transfer.statement_descriptor", "TST*THANKYOU")
+    mapObj.set("payment_transfer.statement_descriptor", "P2P*THANKYOU")
     mapObj.set("payment_transfer.channel", "KIOSK")
     mapObj.set("payment_transfer.text", "funding_source")
-    mapObj.set("partnerId", "ptnr_BEeCrYJHh2BXTXPy_PEtp-8DBOo")
+    mapObj.set("partnerId", "ptnr_2370-10D6-ED32-C98E")
     
     response = PaymentTransfer.create(mapObj)
     print("transfer.id--> %s") % response.get("transfer.id") #transfer.id-->trn_4MMUC7147Vamd1IVt77DV0d-mIZr
@@ -134,13 +128,6 @@ def makeTransfer():
     print("transfer.channel--> %s") % response.get("transfer.channel") #transfer.channel-->KIOSK
     print("transfer.status--> %s") % response.get("transfer.status") #transfer.status-->APPROVED
     print("transfer.status_timestamp--> %s") % response.get("transfer.status_timestamp") #transfer.status_timestamp-->2016-08-29T01:11:02-05:00
-    
-    
-    # This sample shows looping through transfer.reconciliation_data.custom_field
-    for index, item in response.get("transfer.reconciliation_data.custom_field"):
-        print("index: %d") % index
-        print("name: [ %s ]") % item.get("name")
-        print("value: [ %s ]") % item.get("value")
         
 
 if __name__ == "__main__":
