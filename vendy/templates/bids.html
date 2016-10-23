@@ -6,9 +6,9 @@
     {% include "layouts/nav.html" %}
 
     <section class="header-section">
-        <div class="col-md-2">
+        <div class="col-md-1">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="padding">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#winning" aria-controls="winning"
@@ -23,11 +23,12 @@
                 <div role="tabpanel" class="tab-pane active" id="winning">
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-striped" style="padding-bottom: 0; font-size: 20px;">
+                            <table class="table table-striped" style="padding-bottom: 0; font-size: 16px;">
                                 <thead>
                                 <tr>
                                     <th></th>
                                     <th>Model</th>
+                                    <th>Location</th>
                                     <th>Month & Year</th>
                                     <th>Bid</th>
                                     <th>Deal Closing in</th>
@@ -39,8 +40,9 @@
                                         <img class="img-responsive" src="{% static 'vendy/img/vending.jpg' %}"/>
                                     </th>
                                     <td>Breezer F400</td>
+                                    <td>University of San Francisco Campus</td>
                                     <td>2016, October</td>
-                                    <td>$200.00</td>
+                                    <td>$103.00</td>
                                     <td>in 5 days</td>
                                 </tr>
                                 <tr>
@@ -48,17 +50,19 @@
                                         <img class="img-responsive" src="{% static 'vendy/img/vending.jpg' %}"/>
                                     </th>
                                     <td>Breezer F400</td>
-                                    <td>2016, October</td>
-                                    <td>$200.00</td>
+                                    <td>University of San Francisco Campus</td>
+                                    <td>2016, November</td>
+                                    <td>$95.00</td>
                                     <td>in 5 days</td>
                                 </tr>
                                 <tr>
                                     <th class="col-md-2" scope="row">
-                                        <img class="img-responsive" src="{% static 'vendy/img/vending.jpg' %}"/>
+                                        <img class="img-responsive" src="{% static 'vendy/img/vending2.jpg' %}"/>
                                     </th>
-                                    <td>Breezer F400</td>
+                                    <td>Racketer 002</td>
+                                    <td>Canvedish Mall</td>
                                     <td>2016, October</td>
-                                    <td>$200.00</td>
+                                    <td>$105.00</td>
                                     <td>in 5 days</td>
                                 </tr>
                                 </tbody>
@@ -70,47 +74,67 @@
                 <div role="tabpanel" class="tab-pane" id="losing">
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-striped" style="padding-bottom: 0; font-size: 20px;">
+                            <table class="table table-striped" style="padding-bottom: 0; font-size: 16px;">
                                 <thead>
                                 <tr>
                                     <th></th>
                                     <th>Model</th>
+                                    <th>Location</th>
                                     <th>Month & Year</th>
                                     <th>Losing Bid</th>
                                     <th>New Bid</th>
                                     <th>Deal Closing in</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <th class="col-md-2" scope="row">
-                                        <img class="img-responsive" src="{% static 'vendy/img/vending.jpg' %}"/>
+                                        <img class="img-responsive" src="{% static 'vendy/img/vending3.jpeg' %}"/>
                                     </th>
-                                    <td>Breezer F400</td>
+                                    <td>Lucas 300</td>
+                                    <td>Waterfront Center</td>
                                     <td>2016, October</td>
-                                    <td>$200.00</td>
-                                    <td>$201.00</td>
+                                    <td>$119.00</td>
+                                    <td>$150.00</td>
                                     <td>in 5 days</td>
+                                    <td>
+                                        <button class="defaultButton defaultButtonBid pull-right"
+                                                style="font-size: 25px; font-weight: 300;">Bid Again
+                                        </button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="col-md-2" scope="row">
-                                        <img class="img-responsive" src="{% static 'vendy/img/vending.jpg' %}"/>
+                                        <img class="img-responsive" src="{% static 'vendy/img/vending4.jpeg' %}"/>
                                     </th>
-                                    <td>Breezer F400</td>
+                                    <td>FSI 3040</td>
+                                    <td>Cavendish 7 Eleven</td>
                                     <td>2016, October</td>
-                                    <td>$200.00</td>
-                                    <td>$201.00</td>
+                                    <td>$60.00</td>
+                                    <td>$95.00</td>
                                     <td>in 5 days</td>
+                                    <td>
+                                        <button class="defaultButton defaultButtonBid pull-right"
+                                                style="font-size: 25px; font-weight: 300;">Bid Again
+                                        </button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="col-md-2" scope="row">
-                                        <img class="img-responsive" src="{% static 'vendy/img/vending.jpg' %}"/>
+                                        <img class="img-responsive" src="{% static 'vendy/img/vending5.jpeg' %}"/>
                                     </th>
-                                    <td>Breezer F400</td>
+                                    <td>OR70</td>
+                                    <td>Cavendish Pharmacy</td>
                                     <td>2016, October</td>
-                                    <td>$200.00</td>
-                                    <td>$201.00</td>
+                                    <td>$103.00</td>
+                                    <td>$105.00</td>
                                     <td>in 5 days</td>
+                                    <td>
+                                        <button class="defaultButton defaultButtonBid pull-right"
+                                                style="font-size: 25px; font-weight: 300;">Bid Again
+                                        </button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -75,7 +75,7 @@ h4 {
     right: 0;
     height: 65px;
     z-index: 100000;
-    background-color: #F15C5C;
+    background-color: RGB(248,180,45);
 }
 
 .navLeft, .navRight {
@@ -132,7 +132,13 @@ button:hover {
 }
 
 .defaultButtonBid {
-    background: #F15C5C;
+    background: RGB(248,180,45);
+    color: #fff;
+}
+
+.defaultButtonManage {
+    height: 40px;
+    background: RGB(248,180,45);
     color: #fff;
 }
 
@@ -145,7 +151,7 @@ button:hover {
 }
 
 .defaultButtonSearch {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     height: 46px;
 }
@@ -162,7 +168,7 @@ button:hover {
 }
 
 .bidCardTitle {
-    background: #F15C5C;
+    background: RGB(248,180,45);
     border-radius: 4px;
     color: #ffffff;
     position: absolute;
@@ -212,12 +218,16 @@ input {
 }
 
 .current-bid {
-    color: #F15C5C;
+    color: RGB(248,180,45);
 }
 
-#current-bid-price h4, h2 { display: inline; }
+#current-bid-price h4, h2 {
+    display: inline;
+}
 
-#bid-title h1, p { display: inline; }
+#bid-title h1, p {
+    display: inline;
+}
 
 .img-nav {
     padding: 10px;
@@ -226,4 +236,15 @@ input {
 
 .header-section {
     padding: 80px 0 0px 0;
+}
+
+.vending {
+    margin: 10px;
+    background-color: #D3D3D3;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.vending-selected {
+    background-color: #A9A9A9
 }

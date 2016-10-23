@@ -1,0 +1,158 @@
+{% extends "layouts/base.html" %}
+
+{% load staticfiles %}
+{% block content %}
+
+    {% include "layouts/nav.html" %}
+
+    <section class="header-section" style="padding-left: 25px; padding-right:25px;">
+        <div class="row">
+            <div class="col-md-7">
+                <div id="bid-title">
+                    <h1>Breezer F400, &nbsp;</h1>
+
+                    <p>at University of San Franscisco campus.</p>
+                </div>
+                <br><br>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-11">
+                    <div class="row" style="padding:5px;">
+                        <div class="col-md-2 vending vending-selected">
+                            A1
+                        </div>
+                        <div class="col-md-2 vending">
+                            A2
+                        </div>
+                        <div class="col-md-2 vending">
+                            A3
+                        </div>
+                        <div class="col-md-2 vending">
+                            A4
+                        </div>
+                    </div>
+                    <div class="row" style="padding:5px;">
+                        <div class="col-md-2 vending">
+                            B1
+                        </div>
+                        <div class="col-md-2 vending">
+                            B2
+                        </div>
+                        <div class="col-md-2 vending">
+                            B3
+                        </div>
+                        <div class="col-md-2 vending">
+                            B4
+                        </div>
+                    </div>
+                    <div class="row" style="padding:5px;">
+                        <div class="col-md-2 vending">
+                            C1
+                        </div>
+                        <div class="col-md-2 vending">
+                            C2
+                        </div>
+                        <div class="col-md-2 vending">
+                            C3
+                        </div>
+                        <div class="col-md-2 vending">
+                            C4
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+
+                <div class="padding">
+                    <div class="bidCard double-padding">
+
+                        <div class="bidCardTitlePrimary">
+                            <div id="bid-title" style="padding-bottom:5px;">
+                                <h2>Manage Inventory, &nbsp;</h2>
+                                <p><b>for A1</b></p>
+                            </div>
+                        </div>
+
+                        <div class="padding">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#october" aria-controls="october"
+                                                                          role="tab"
+                                                                          data-toggle="tab">October</a></li>
+                                <li role="presentation"><a href="#november" aria-controls="november" role="tab"
+                                                           data-toggle="tab">November</a></li>
+                            </ul>
+                        </div>
+                        <br>
+
+                        <div class="col-md-5" style="padding-bottom:10px;">
+                            <img class="img-responsive" src="{% static 'vendy/img/vending.jpg' %}"/>
+                        </div>
+
+                        <div>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="october">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table class="table table-striped" style="padding-bottom: 0;">
+                                                <tbody>
+                                                <tr>
+                                                    <th scope="row">Dimensions</th>
+                                                    <td>72"H 35"D 39"W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Weight</th>
+                                                    <td>20 oz. per item</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Quantity</th>
+                                                    <td>20 per row</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Cooling</th>
+                                                    <td>No</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row padding">
+                                    <div class="bidCardContent">
+
+                                        <div class="form-group">
+                                            <label>Price for item</label>
+                                            <input type="text" class="form-control" id="amount"
+                                                   name="amount"
+                                                   placeholder="Price you will charge per item">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Number of items</label>
+                                            <input type="text" class="form-control" id="items"
+                                                   name="items"
+                                                   placeholder="Number of items you will stock">
+                                        </div>
+                                        <button class="defaultButton defaultButtonManage pull-right" data-toggle="modal"
+                                                data-target="#confirm_bid"
+                                                style="font-size: 18px; font-weight: 300;">Submit
+                                        </button>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="november">
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="december">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+{% endblock %}

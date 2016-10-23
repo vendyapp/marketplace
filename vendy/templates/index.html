@@ -3,6 +3,9 @@
 {% load staticfiles %}
 {% block content %}
 
+    {% include "modals/stats.html" %}
+    {% include "modals/confirm_bid.html" %}
+
     {% include "layouts/nav.html" %}
 
     <section class="header-section">
@@ -29,9 +32,9 @@
 
                         <div class="bidCardTitlePrimary">
                             <div id="bid-title" style="padding-bottom:5px;">
-                                <h1>University of Cape Town, </h1>
+                                <h1 style="font-size: 28px;">University of San Francisco, </h1>
 
-                                <p class="currenct-bid"><i> ends in 5 days.</i></p>
+                                <p class="currenct-bid"><i> bidding ends in 5 days, 3 hours and 32 minutes.</i></p>
                             </div>
 
                             <h4>Located inside the student center on campus.</h4>
@@ -40,13 +43,13 @@
 
                         <div class="padding">
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#january" aria-controls="january"
+                                <li role="presentation" class="active"><a href="#october" aria-controls="october"
                                                                           role="tab"
-                                                                          data-toggle="tab">January</a></li>
-                                <li role="presentation"><a href="#february" aria-controls="february" role="tab"
-                                                           data-toggle="tab">February</a></li>
-                                <li role="presentation"><a href="#march" aria-controls="march" role="tab"
-                                                           data-toggle="tab">March</a></li>
+                                                                          data-toggle="tab">October</a></li>
+                                <li role="presentation"><a href="#november" aria-controls="november" role="tab"
+                                                           data-toggle="tab">November</a></li>
+                                <li role="presentation"><a href="#december" aria-controls="december" role="tab"
+                                                           data-toggle="tab">December</a></li>
                             </ul>
                         </div>
                         <br>
@@ -57,7 +60,7 @@
 
                         <div>
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="january">
+                                <div role="tabpanel" class="tab-pane active" id="october">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <table class="table table-striped" style="padding-bottom: 0;">
@@ -80,7 +83,9 @@
                                                 </tr>
                                                 </tbody>
                                             </table>
-                                            <button class="defaultButton defaultButtonStats pull-left">Stats
+                                            <button class="defaultButton defaultButtonStats pull-left"
+                                                    data-toggle="modal"
+                                                    data-target="#stats">Stats
                                             </button>
                                             <button class="defaultButton defaultButtonStats pull-right">Specs
                                             </button>
@@ -89,29 +94,28 @@
                                 </div>
                                 <div class="row padding">
                                     <div class="bidCardContent">
-                                        <form>
-                                            <div id="current-bid-price" style="padding-bottom:5px;">
-                                                <h4 class="current-bid">Current bid is &nbsp;</h4>
 
-                                                <h2 class="current-bid"><b>$101.00</b></h2>
+                                        <div id="current-bid-price" style="padding-bottom:5px;">
+                                            <h4 class="current-bid">Current bid is &nbsp;</h4>
 
-                                                <h4 class="current-bid">, place your bid now:</h4>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control input-lg" id="amount"
-                                                       name="amount"
-                                                       placeholder="Minimum of $102,00">
-                                            </div>
-                                            <button class="defaultButton defaultButtonBid pull-right"
-                                                    style="font-size: 25px; font-weight: 300;">Bid Now
-                                            </button>
-                                        </form>
+                                            <h2 class="current-bid"><b>$101.00</b></h2>
+
+                                            <h4 class="current-bid">, place your bid now:</h4>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-lg" id="amount"
+                                                   name="amount"
+                                                   placeholder="Minimum of $102,00">
+                                        </div>
+                                        <button class="defaultButton defaultButtonBid pull-right" data-toggle="modal"
+                                                data-target="#confirm_bid"
+                                                style="font-size: 25px; font-weight: 300;">Bid Now
+                                        </button>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane" id="february">
-
+                                <div role="tabpanel" class="tab-pane" id="november">
                                 </div>
-                                <div role="tabpanel" class="tab-pane" id="march">
+                                <div role="tabpanel" class="tab-pane" id="december">
 
                                 </div>
                             </div>
@@ -125,8 +129,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
 
         $('.show-hide').hide();
@@ -139,57 +142,34 @@
                 {
                     "type": "Feature",
                     "properties": {
-                        "message": "Foo",
+                        "message": "Bar",
                         "iconSize": [60, 60]
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [
-                            -66.324462890625,
-                            -16.024695711685304
-                        ]
+                        "coordinates": [-122.4507, 37.776]
                     }
                 },
                 {
                     "type": "Feature",
                     "properties": {
                         "message": "Bar",
-                        "iconSize": [50, 50]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [
-                            -61.2158203125,
-                            -15.97189158092897
-                        ]
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "message": "Baz",
-                        "iconSize": [40, 40]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [
-                            -63.29223632812499,
-                            -18.28151823530889
-                        ]
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "message": "Foo",
                         "iconSize": [60, 60]
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [
-                            18.4612,
-                            -33.9577
-                        ]
+                        "coordinates": [-122.45, 37.78]
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "message": "Bar",
+                        "iconSize": [60, 60]
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-122.46, 37.78]
                     }
                 }
             ]
@@ -198,8 +178,8 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
-            center: [-65.017, -16.457],
-            zoom: 5
+            center: [-122.4507, 37.776],
+            zoom: 12
         });
 
         // add markers to map
@@ -207,7 +187,7 @@
             // create a DOM element for the marker
             var el = document.createElement('div');
             el.className = 'marker';
-            el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+            el.style.backgroundImage = 'url(http://localhost:2468/static/vendy/img/flag.png)';
             el.style.width = marker.properties.iconSize[0] + 'px';
             el.style.height = marker.properties.iconSize[1] + 'px';
 
@@ -222,7 +202,7 @@
         });
 
         $("#search").click(function (event) {
-            map.flyTo({center: [18.4612, -33.9577], zoom: 12});
+            map.flyTo({center: [-122.4507, 37.776], zoom: 16});
         })
 
     </script>

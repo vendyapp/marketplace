@@ -1,15 +1,16 @@
+{% load staticfiles %}
 <div class="navVendy" role="navigation">
     <div class="navLeft">
-        <a href='/' id="navTitle">
-            Vendy
+        <a href='/' id="navTitle" style="width: 180px;">
+            <img class="img-responsive" src="{% static 'vendy/img/vendy_logo_3.png' %}"/>
         </a>
     </div>
     <div class="navRight">
         <a href="/vendy/bids/" id="navSubTitle" style="padding-right: 40px;">
             Active Bids
         </a>
-        <div id="navSubTitle">
+        <a href="/vendy/manage/" id="navSubTitle">
             Manage
-        </div>
+        </a>
     </div>
 </div>
